@@ -17,29 +17,3 @@
 # for n in cep:
 #     print(n, end='')
 
-import xml.etree.ElementTree as ET
-
-def capturar_nprocesso(xml_path):
-    # Parsing do arquivo XML
-    tree = ET.parse(xml_path)
-    root = tree.getroot()
-
-    # Lista para armazenar os resultados
-    resultados = []
-
-    # Iteração através dos elementos do XML
-    for elemento in root.iter():
-        # Verifica se o elemento é do tipo 'NPROCESSO'
-        if elemento.tag == 'NPROCESSO':
-            resultados.append(elemento.text)
-
-    return resultados
-
-# Exemplo de uso
-caminho_do_xml = r'C:\xampp\htdocs\GitHub\Extrator_url\arquivo'
-resultados = capturar_nprocesso(caminho_do_xml)
-
-# Imprime os resultados capturados
-for resultado in resultados:
-    print([resultado])
-print(len(resultados))
